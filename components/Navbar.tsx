@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { getCurrentUser, logoutUser } from '@/lib/auth';
 
@@ -25,16 +26,11 @@ export default function Navbar() {
   return (
     <nav className="bg-white shadow-sm sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
+        <div className="flex justify-between h-20">
           {/* Logo */}
           <div className="flex items-center">
-            <Link href="/" className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-lg flex items-center justify-center">
-                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                </svg>
-              </div>
-              <span className="text-xl font-bold text-slate-900">Candexa</span>
+            <Link href="/" className="flex items-center gap-3">
+              <Image src="/logo_with_text.jpg" alt="Candexa AI Logo" width={120} height={120} className="rounded-xl object-contain" />
             </Link>
           </div>
 
@@ -43,7 +39,7 @@ export default function Navbar() {
             <Link
               href="/"
               className={`text-sm font-medium transition-colors ${
-                isActive('/') ? 'text-indigo-600' : 'text-slate-600 hover:text-slate-900'
+                isActive('/') ? 'text-[#ff7a18]' : 'text-slate-600 hover:text-slate-900'
               }`}
             >
               Home
@@ -54,7 +50,7 @@ export default function Navbar() {
                 <Link
                   href="/dashboard"
                   className={`text-sm font-medium transition-colors ${
-                    isActive('/dashboard') ? 'text-indigo-600' : 'text-slate-600 hover:text-slate-900'
+                    isActive('/dashboard') ? 'text-[#ff7a18]' : 'text-slate-600 hover:text-slate-900'
                   }`}
                 >
                   Dashboard
@@ -62,7 +58,7 @@ export default function Navbar() {
                 <Link
                   href="/assessment"
                   className={`text-sm font-medium transition-colors ${
-                    isActive('/assessment') ? 'text-indigo-600' : 'text-slate-600 hover:text-slate-900'
+                    isActive('/assessment') ? 'text-[#ff7a18]' : 'text-slate-600 hover:text-slate-900'
                   }`}
                 >
                   Assessment
@@ -82,14 +78,14 @@ export default function Navbar() {
                 <Link
                   href="/login"
                   className={`text-sm font-medium transition-colors ${
-                    isActive('/login') ? 'text-indigo-600' : 'text-slate-600 hover:text-slate-900'
+                    isActive('/login') ? 'text-[#ff7a18]' : 'text-slate-600 hover:text-slate-900'
                   }`}
                 >
                   Login
                 </Link>
                 <Link
                   href="/register"
-                  className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium rounded-lg transition-colors"
+                  className="px-4 py-2 bg-[#ff7a18] hover:bg-[#e66a10] text-white text-sm font-medium rounded-lg transition-colors"
                 >
                   Register
                 </Link>
@@ -122,7 +118,7 @@ export default function Navbar() {
                 href="/"
                 onClick={() => setIsMenuOpen(false)}
                 className={`text-base font-medium ${
-                  isActive('/') ? 'text-indigo-600' : 'text-slate-600'
+                  isActive('/') ? 'text-[#ff7a18]' : 'text-slate-600'
                 }`}
               >
                 Home
@@ -134,7 +130,7 @@ export default function Navbar() {
                     href="/dashboard"
                     onClick={() => setIsMenuOpen(false)}
                     className={`text-base font-medium ${
-                      isActive('/dashboard') ? 'text-indigo-600' : 'text-slate-600'
+                      isActive('/dashboard') ? 'text-[#ff7a18]' : 'text-slate-600'
                     }`}
                   >
                     Dashboard
@@ -143,7 +139,7 @@ export default function Navbar() {
                     href="/assessment"
                     onClick={() => setIsMenuOpen(false)}
                     className={`text-base font-medium ${
-                      isActive('/assessment') ? 'text-indigo-600' : 'text-slate-600'
+                      isActive('/assessment') ? 'text-[#ff7a18]' : 'text-slate-600'
                     }`}
                   >
                     Assessment
@@ -161,7 +157,7 @@ export default function Navbar() {
                     href="/login"
                     onClick={() => setIsMenuOpen(false)}
                     className={`text-base font-medium ${
-                      isActive('/login') ? 'text-indigo-600' : 'text-slate-600'
+                      isActive('/login') ? 'text-[#ff7a18]' : 'text-slate-600'
                     }`}
                   >
                     Login
@@ -169,7 +165,7 @@ export default function Navbar() {
                   <Link
                     href="/register"
                     onClick={() => setIsMenuOpen(false)}
-                    className="text-base font-medium text-indigo-600"
+                    className="text-base font-medium text-[#ff7a18]"
                   >
                     Register
                   </Link>

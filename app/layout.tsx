@@ -8,7 +8,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Candexa - Recruitment Health Index",
+  title: "Candexa AI - Recruitment Health Index",
   description: "Evaluate your hiring performance with our AI-powered recruitment health assessment",
 };
 

@@ -98,9 +98,12 @@ export default function Sidebar() {
       `}>
         <div className="flex flex-col h-full">
           {/* Logo */}
-          <div className="flex items-center justify-between h-20 px-4 border-b border-slate-200">
+          <div className="flex items-center justify-between h-16 px-4 border-b border-slate-200">
             <Link href="/dashboard" className="flex items-center gap-3">
-              <Image src="/logo_with_text.jpg" alt="Candexa AI Logo" width={120} height={120} className="rounded-xl flex-shrink-0 object-contain" />
+              <Image src="/logo_with_text.jpg" alt="Candexa AI Logo" width={40} height={40} className="rounded-xl flex-shrink-0" />
+              {!isCollapsed && (
+                <span className="text-xl font-bold text-slate-900">Candexa AI</span>
+              )}
             </Link>
             <button
               onClick={() => setIsCollapsed(!isCollapsed)}

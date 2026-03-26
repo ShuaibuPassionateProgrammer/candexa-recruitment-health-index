@@ -99,7 +99,7 @@ export default function DashboardPage() {
   if (!isReady) {
     return (
       <div className="min-h-screen bg-slate-50 flex items-center justify-center">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-indigo-600"></div>
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#ff7a18]"></div>
       </div>
     );
   }
@@ -124,11 +124,11 @@ export default function DashboardPage() {
           <div className="grid md:grid-cols-2 gap-4 mb-8">
             <Link
               href="/assessment"
-              className="flex items-center justify-between p-6 bg-white rounded-xl border border-slate-200 hover:border-indigo-200 hover:shadow-lg transition-all"
+              className="flex items-center justify-between p-6 bg-white rounded-xl border border-slate-200 hover:border-orange-200 hover:shadow-lg transition-all"
             >
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center">
-                  <svg className="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center">
+                  <svg className="w-6 h-6 text-[#ff7a18]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                   </svg>
                 </div>
@@ -143,7 +143,7 @@ export default function DashboardPage() {
             </Link>
 
             <button
-              className="flex items-center justify-between p-6 bg-white rounded-xl border border-slate-200 hover:border-indigo-200 hover:shadow-lg transition-all text-left"
+              className="flex items-center justify-between p-6 bg-white rounded-xl border border-slate-200 hover:border-orange-200 hover:shadow-lg transition-all text-left"
             >
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center">
@@ -194,7 +194,7 @@ export default function DashboardPage() {
                 {dummyReports.map((report) => (
                   <div key={report.id} className="flex-1 flex flex-col items-center">
                     <div 
-                      className="w-full bg-gradient-to-t from-indigo-500 to-indigo-400 rounded-t-lg transition-all"
+                      className="w-full bg-gradient-to-t from-[#ff7a18] to-[#e66a10] rounded-t-lg transition-all"
                       style={{ height: `${report.score}%` }}
                     ></div>
                     <div className="text-xs text-slate-500 mt-2 text-center">
@@ -211,8 +211,8 @@ export default function DashboardPage() {
               <h2 className="text-lg font-semibold text-slate-900 mb-4">Performance Breakdown</h2>
               <div className="space-y-4">
                 {[
-                  { label: 'Time to Hire', value: 16, max: 20, color: 'bg-indigo-500' },
-                  { label: 'Offer Acceptance', value: 17, max: 20, color: 'bg-purple-500' },
+                  { label: 'Time to Hire', value: 16, max: 20, color: 'bg-[#ff7a18]' },
+                  { label: 'Offer Acceptance', value: 17, max: 20, color: 'bg-orange-500' },
                   { label: 'Interview Efficiency', value: 10, max: 15, color: 'bg-blue-500' },
                   { label: 'Diversity Score', value: 11, max: 15, color: 'bg-pink-500' },
                   { label: 'Candidate NPS', value: 15, max: 20, color: 'bg-cyan-500' }
@@ -238,7 +238,7 @@ export default function DashboardPage() {
           <div className="bg-white rounded-xl p-6 border border-slate-200">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-lg font-semibold text-slate-900">Previous Reports</h2>
-              <button className="text-sm text-indigo-600 hover:text-indigo-700 font-medium">
+              <button className="text-sm text-[#ff7a18] hover:text-[#e66a10] font-medium">
                 View all
               </button>
             </div>
@@ -263,7 +263,7 @@ export default function DashboardPage() {
                         </span>
                       </td>
                       <td className="py-4">
-                        <button className="text-sm text-indigo-600 hover:text-indigo-700 font-medium">
+                        <button className="text-sm text-[#ff7a18] hover:text-[#e66a10] font-medium">
                           View
                         </button>
                       </td>

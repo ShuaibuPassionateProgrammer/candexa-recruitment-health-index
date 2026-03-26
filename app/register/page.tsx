@@ -94,7 +94,7 @@ export default function RegisterPage() {
           <div className="text-center mb-8">
             <h1 className="text-3xl font-bold text-slate-900">Create your account</h1>
             <p className="mt-2 text-slate-600">
-              Join Candexa and start optimizing your recruitment
+              Join Candexa AI and start optimizing your recruitment
             </p>
           </div>
 
@@ -118,7 +118,7 @@ export default function RegisterPage() {
                   onChange={handleChange}
                   className={`w-full px-4 py-3 rounded-lg border ${
                     errors.companyName ? 'border-red-500' : 'border-slate-300'
-                  } focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors`}
+                  } focus:ring-2 focus:ring-[#ff7a18] focus:border-[#ff7a18] transition-colors`}
                   placeholder="Acme Corporation"
                 />
                 {errors.companyName && (
@@ -138,7 +138,7 @@ export default function RegisterPage() {
                   onChange={handleChange}
                   className={`w-full px-4 py-3 rounded-lg border ${
                     errors.email ? 'border-red-500' : 'border-slate-300'
-                  } focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors`}
+                  } focus:ring-2 focus:ring-[#ff7a18] focus:border-[#ff7a18] transition-colors`}
                   placeholder="you@company.com"
                 />
                 {errors.email && (
@@ -158,7 +158,7 @@ export default function RegisterPage() {
                   onChange={handleChange}
                   className={`w-full px-4 py-3 rounded-lg border ${
                     errors.password ? 'border-red-500' : 'border-slate-300'
-                  } focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors`}
+                  } focus:ring-2 focus:ring-[#ff7a18] focus:border-[#ff7a18] transition-colors`}
                   placeholder="••••••••"
                 />
                 {errors.password && (
@@ -178,7 +178,7 @@ export default function RegisterPage() {
                   onChange={handleChange}
                   className={`w-full px-4 py-3 rounded-lg border ${
                     errors.confirmPassword ? 'border-red-500' : 'border-slate-300'
-                  } focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors`}
+                  } focus:ring-2 focus:ring-[#ff7a18] focus:border-[#ff7a18] transition-colors`}
                   placeholder="••••••••"
                 />
                 {errors.confirmPassword && (
@@ -189,7 +189,7 @@ export default function RegisterPage() {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="w-full py-3 px-4 bg-indigo-600 hover:bg-indigo-700 disabled:bg-indigo-400 text-white font-semibold rounded-lg transition-colors shadow-lg shadow-indigo-200 disabled:shadow-none"
+                className="w-full py-3 px-4 bg-[#ff7a18] hover:bg-[#e66a10] disabled:bg-[#e66a10] text-white font-semibold rounded-lg transition-colors shadow-lg shadow-orange-200 disabled:shadow-none"
               >
                 {isLoading ? (
                   <span className="flex items-center justify-center gap-2">
@@ -208,7 +208,7 @@ export default function RegisterPage() {
             <div className="mt-6 text-center">
               <p className="text-sm text-slate-600">
                 Already have an account?{' '}
-                <Link href="/login" className="font-medium text-indigo-600 hover:text-indigo-500">
+                <Link href="/login" className="font-medium text-[#ff7a18] hover:text-[#e66a10]">
                   Sign in
                 </Link>
               </p>

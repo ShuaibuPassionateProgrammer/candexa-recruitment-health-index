@@ -62,7 +62,7 @@ function LoginContent() {
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-slate-900">Welcome back</h1>
           <p className="mt-2 text-slate-600">
-            Sign in to your Candexa account
+            Sign in to your Candexa AI account
           </p>
         </div>
 
@@ -90,7 +90,7 @@ function LoginContent() {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors"
+                className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-[#ff7a18] focus:border-[#ff7a18] transition-colors"
                 placeholder="you@company.com"
               />
             </div>
@@ -100,7 +100,7 @@ function LoginContent() {
                 <label htmlFor="password" className="block text-sm font-medium text-slate-700">
                   Password
                 </label>
-                <a href="#" className="text-sm text-indigo-600 hover:text-indigo-500">
+                <a href="#" className="text-sm text-[#ff7a18] hover:text-[#e66a10]">
                   Forgot password?
                 </a>
               </div>
@@ -110,7 +110,7 @@ function LoginContent() {
                 name="password"
                 value={formData.password}
                 onChange={handleChange}
-                className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors"
+                className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-[#ff7a18] focus:border-[#ff7a18] transition-colors"
                 placeholder="••••••••"
               />
             </div>
@@ -118,7 +118,7 @@ function LoginContent() {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full py-3 px-4 bg-indigo-600 hover:bg-indigo-700 disabled:bg-indigo-400 text-white font-semibold rounded-lg transition-colors shadow-lg shadow-indigo-200 disabled:shadow-none"
+              className="w-full py-3 px-4 bg-[#ff7a18] hover:bg-[#e66a10] disabled:bg-[#e66a10] text-white font-semibold rounded-lg transition-colors shadow-lg shadow-orange-200 disabled:shadow-none"
             >
               {isLoading ? (
                 <span className="flex items-center justify-center gap-2">
@@ -137,17 +137,17 @@ function LoginContent() {
           <div className="mt-6 text-center">
             <p className="text-sm text-slate-600">
               Don&apos;t have an account?{' '}
-              <Link href="/register" className="font-medium text-indigo-600 hover:text-indigo-500">
+              <Link href="/register" className="font-medium text-[#ff7a18] hover:text-[#e66a10]">
                 Create one
               </Link>
             </p>
           </div>
 
-          <div className="mt-6 pt-6 border-t border-slate-200">
+          {/* <div className="mt-6 pt-6 border-t border-slate-200">
             <p className="text-xs text-slate-500 text-center">
               Demo: Use any email/password you registered with
             </p>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
@@ -160,7 +160,7 @@ export default function LoginPage() {
       <Navbar />
       <Suspense fallback={
         <div className="flex items-center justify-center py-12">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-indigo-600"></div>
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#ff7a18]"></div>
         </div>
       }>
         <LoginContent />

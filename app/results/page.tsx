@@ -75,7 +75,7 @@ function ResultsContent() {
           <p className="text-slate-600 mb-6">Please complete an assessment to see your results.</p>
           <Link
             href="/assessment"
-            className="inline-flex items-center px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-lg transition-colors"
+            className="inline-flex items-center px-6 py-3 bg-[#ff7a18] hover:bg-[#e66a10] text-white font-semibold rounded-lg transition-colors"
           >
             Go to Assessment
           </Link>
@@ -151,14 +151,14 @@ function ResultsContent() {
                 score={data.breakdown.timeToHire.score} 
                 max={data.breakdown.timeToHire.max}
                 label="Time to Hire"
-                color="bg-indigo-500"
+                color="bg-orange-500"
               />
               
               <ScoreBar 
                 score={data.breakdown.offerAcceptance.score} 
                 max={data.breakdown.offerAcceptance.max}
                 label="Offer Acceptance"
-                color="bg-purple-500"
+                color="bg-orange-600"
               />
               
               <ScoreBar 
@@ -195,8 +195,8 @@ function ResultsContent() {
               <div className="space-y-3">
                 {data.insights.map((insight, idx) => (
                   <div key={idx} className="flex gap-3 p-3 bg-slate-50 rounded-lg">
-                    <div className="flex-shrink-0 w-8 h-8 bg-indigo-100 rounded-full flex items-center justify-center">
-                      <svg className="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="flex-shrink-0 w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">
+                      <svg className="w-4 h-4 text-[#ff7a18]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
                     </div>
@@ -219,7 +219,7 @@ function ResultsContent() {
             </Link>
             <Link
               href="/dashboard"
-              className="inline-flex items-center justify-center px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-lg transition-colors"
+              className="inline-flex items-center justify-center px-6 py-3 bg-[#ff7a18] hover:bg-[#e66a10] text-white font-semibold rounded-lg transition-colors"
             >
               <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
@@ -240,7 +240,7 @@ export default function ResultsPage() {
       <Suspense fallback={
         <div className="min-h-screen flex items-center justify-center lg:ml-64">
           <div className="text-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600 mx-auto"></div>
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#ff7a18] mx-auto"></div>
             <p className="mt-4 text-slate-600">Loading results...</p>
           </div>
         </div>

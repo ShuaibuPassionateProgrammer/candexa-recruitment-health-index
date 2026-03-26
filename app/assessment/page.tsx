@@ -206,7 +206,7 @@ export default function AssessmentPage() {
                     name="companyName"
                     value={formData.companyName}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 rounded-lg border ${errors.companyName ? 'border-red-500' : 'border-slate-300'} focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors`}
+                    className={`w-full px-4 py-3 rounded-lg border ${errors.companyName ? 'border-red-500' : 'border-slate-300'} focus:ring-2 focus:ring-[#ff7a18] focus:border-[#ff7a18] transition-colors`}
                     placeholder="Acme Corporation"
                   />
                   {errors.companyName && <p className="mt-1 text-sm text-red-600">{errors.companyName}</p>}
@@ -223,7 +223,7 @@ export default function AssessmentPage() {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 rounded-lg border ${errors.email ? 'border-red-500' : 'border-slate-300'} focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors`}
+                    className={`w-full px-4 py-3 rounded-lg border ${errors.email ? 'border-red-500' : 'border-slate-300'} focus:ring-2 focus:ring-[#ff7a18] focus:border-[#ff7a18] transition-colors`}
                     placeholder="hr@company.com"
                   />
                   {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email}</p>}
@@ -239,7 +239,7 @@ export default function AssessmentPage() {
                     name="industry"
                     value={formData.industry}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 rounded-lg border ${errors.industry ? 'border-red-500' : 'border-slate-300'} focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors bg-white`}
+                    className={`w-full px-4 py-3 rounded-lg border ${errors.industry ? 'border-red-500' : 'border-slate-300'} focus:ring-2 focus:ring-[#ff7a18] focus:border-[#ff7a18] transition-colors bg-white`}
                   >
                     <option value="">Select an industry</option>
                     {INDUSTRIES.map(industry => (
@@ -262,7 +262,7 @@ export default function AssessmentPage() {
                       value={formData.timeToHire}
                       onChange={handleChange}
                       min="0"
-                      className={`w-full px-4 py-3 rounded-lg border ${errors.timeToHire ? 'border-red-500' : 'border-slate-300'} focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors`}
+                      className={`w-full px-4 py-3 rounded-lg border ${errors.timeToHire ? 'border-red-500' : 'border-slate-300'} focus:ring-2 focus:ring-[#ff7a18] focus:border-[#ff7a18] transition-colors`}
                       placeholder="45"
                     />
                     {errors.timeToHire && <p className="mt-1 text-sm text-red-600">{errors.timeToHire}</p>}
@@ -281,7 +281,7 @@ export default function AssessmentPage() {
                       onChange={handleChange}
                       min="0"
                       max="100"
-                      className={`w-full px-4 py-3 rounded-lg border ${errors.offerAcceptanceRate ? 'border-red-500' : 'border-slate-300'} focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors`}
+                      className={`w-full px-4 py-3 rounded-lg border ${errors.offerAcceptanceRate ? 'border-red-500' : 'border-slate-300'} focus:ring-2 focus:ring-[#ff7a18] focus:border-[#ff7a18] transition-colors`}
                       placeholder="85"
                     />
                     {errors.offerAcceptanceRate && <p className="mt-1 text-sm text-red-600">{errors.offerAcceptanceRate}</p>}
@@ -302,7 +302,7 @@ export default function AssessmentPage() {
                       onChange={handleChange}
                       min="0"
                       step="0.1"
-                      className={`w-full px-4 py-3 rounded-lg border ${errors.interviewToOfferRatio ? 'border-red-500' : 'border-slate-300'} focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors`}
+                      className={`w-full px-4 py-3 rounded-lg border ${errors.interviewToOfferRatio ? 'border-red-500' : 'border-slate-300'} focus:ring-2 focus:ring-[#ff7a18] focus:border-[#ff7a18] transition-colors`}
                       placeholder="4"
                     />
                     {errors.interviewToOfferRatio && <p className="mt-1 text-sm text-red-600">{errors.interviewToOfferRatio}</p>}
@@ -321,7 +321,7 @@ export default function AssessmentPage() {
                       onChange={handleChange}
                       min="-100"
                       max="100"
-                      className={`w-full px-4 py-3 rounded-lg border ${errors.candidateNPS ? 'border-red-500' : 'border-slate-300'} focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors`}
+                      className={`w-full px-4 py-3 rounded-lg border ${errors.candidateNPS ? 'border-red-500' : 'border-slate-300'} focus:ring-2 focus:ring-[#ff7a18] focus:border-[#ff7a18] transition-colors`}
                       placeholder="35"
                     />
                     {errors.candidateNPS && <p className="mt-1 text-sm text-red-600">{errors.candidateNPS}</p>}
@@ -331,7 +331,7 @@ export default function AssessmentPage() {
                 {/* Diversity Score Slider */}
                 <div>
                   <label htmlFor="diversityScore" className="block text-sm font-medium text-slate-700 mb-1">
-                    Diversity Score: <span className="text-indigo-600 font-semibold">{formData.diversityScore}/10</span>
+                    Diversity Score: <span className="text-[#ff7a18] font-semibold">{formData.diversityScore}/10</span>
                   </label>
                   <input
                     type="range"
@@ -342,7 +342,7 @@ export default function AssessmentPage() {
                     min="0"
                     max="10"
                     step="0.5"
-                    className="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-indigo-600"
+                    className="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-[#ff7a18]"
                   />
                   <div className="flex justify-between text-xs text-slate-500 mt-1">
                     <span>Low</span>
@@ -355,7 +355,7 @@ export default function AssessmentPage() {
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="w-full py-4 px-6 bg-indigo-600 hover:bg-indigo-700 disabled:bg-indigo-400 text-white font-semibold rounded-lg transition-colors shadow-lg shadow-indigo-200 disabled:shadow-none"
+                  className="w-full py-4 px-6 bg-[#ff7a18] hover:bg-[#e66a10] disabled:bg-[#e66a10] text-white font-semibold rounded-lg transition-colors shadow-lg shadow-orange-200 disabled:shadow-none"
                 >
                   {isLoading ? (
                     <span className="flex items-center justify-center gap-2">
