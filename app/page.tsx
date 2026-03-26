@@ -139,6 +139,231 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Detailed Features Sections */}
+      <section className="py-20 lg:py-32 bg-slate-50 border-y border-slate-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-32">
+          
+          {/* Feature 1 */}
+          <div className="flex flex-col md:flex-row items-center gap-12">
+            <div className="flex-1 space-y-6">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
+                Make Decisions <br/>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-[#ff7a18]">That Matter</span>
+              </h2>
+              <p className="text-xl text-slate-600 leading-relaxed">
+                Hiring shouldn't be based on guesswork or gut feeling. Candexa AI provides clear insights and data-backed recommendations, helping you confidently select the candidates who truly fit your needs.
+              </p>
+              <div className="inline-block mt-6 px-6 py-3 bg-[#ff7a18]/10 text-[#ff7a18] font-bold rounded-xl text-lg tracking-wide border border-[#ff7a18]/20">
+                Let data lead your hiring
+              </div>
+            </div>
+            <div className="flex-1">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-slate-200 border-8 border-white">
+                <Image src="/features/decisions_matter.png" alt="Make Decisions That Matter" width={800} height={600} className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700" />
+              </div>
+            </div>
+          </div>
+
+          {/* Feature 2 */}
+          <div className="flex flex-col md:flex-row-reverse items-center gap-12">
+            <div className="flex-1 space-y-6">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
+                Stop Letting Bias Cost You <br/>
+                <span className="text-[#ff7a18]">Great Talent</span>
+              </h2>
+              <p className="text-xl text-slate-600 leading-relaxed">
+                Unconscious bias in hiring is silently filtering out your best candidates—often without you realizing it. Candexa AI helps you detect and eliminate bias, ensuring every candidate is evaluated fairly based on skills, experience, and true potential.
+              </p>
+              <div className="flex flex-wrap gap-4 mt-6">
+                <div className="px-8 py-4 bg-[#ff7a18] text-white font-bold rounded-xl shadow-lg shadow-orange-200">
+                  Hire smarter.
+                </div>
+                <div className="px-8 py-4 bg-slate-900 text-white font-bold rounded-xl shadow-lg shadow-slate-300">
+                  Hire fairer.
+                </div>
+              </div>
+            </div>
+            <div className="flex-1">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-slate-200 border-8 border-white">
+                <Image src="/features/stop_bias.png" alt="Stop Letting Bias" width={800} height={600} className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700" />
+              </div>
+            </div>
+          </div>
+
+          {/* Feature 3 */}
+          <div className="flex flex-col md:flex-row items-center gap-12">
+            <div className="flex-1 space-y-6">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
+                Let AI Do the <br/>
+                <span className="text-slate-500">Heavy Lifting</span>
+              </h2>
+              <p className="text-xl text-slate-600 leading-relaxed">
+                Sorting through hundreds of resumes manually takes time and leads to errors. Candexa AI automatically analyzes and evaluates resumes with speed and accuracy, helping you focus only on the most qualified candidates.
+              </p>
+              <div className="inline-block mt-6 px-8 py-4 bg-[#ff7a18] text-white font-bold rounded-xl shadow-lg shadow-orange-200">
+                Work smarter, not harder
+              </div>
+            </div>
+            <div className="flex-1">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-slate-200 border-8 border-white">
+                <Image src="/features/ai_heavy_lifting.png" alt="Let AI Do the Heavy Lifting" width={800} height={600} className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700" />
+              </div>
+            </div>
+          </div>
+
+          {/* Feature 4 */}
+          <div className="flex flex-col md:flex-row-reverse items-center gap-12">
+            <div className="flex-1 space-y-6">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
+                Your Hiring Process <br/>
+                Shouldn't Be <span className="text-[#ff7a18]">This Slow</span>
+              </h2>
+              <p className="text-xl text-slate-600 leading-relaxed">
+                Too many tools. Too many delays. Too much confusion. Candexa AI brings your entire hiring workflow into your email, reducing complexity and helping you move from application to decision faster than ever.
+              </p>
+              <div className="inline-block mt-6 px-8 py-4 bg-[#ff7a18] text-white font-bold rounded-xl shadow-lg shadow-orange-200">
+                Speed up your hiring today.
+              </div>
+            </div>
+            <div className="flex-1">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-slate-200 border-8 border-white bg-slate-100">
+                <Image src="/features/fast_hiring.png" alt="Speed Up Hiring" width={800} height={600} className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700" />
+              </div>
+            </div>
+          </div>
+
+          {/* Feature 5 */}
+          <div className="flex flex-col md:flex-row items-center gap-12">
+            <div className="flex-1 space-y-6">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-400 leading-tight">
+                Recruitment, <br/>
+                <span className="text-slate-900">Simplified</span>
+              </h2>
+              <p className="text-xl text-slate-600 leading-relaxed">
+                Stop switching between multiple platforms just to manage candidates. With Candexa AI, you can evaluate resumes, track progress, and communicate with candidates—all from a single, organized inbox.
+              </p>
+              <div className="inline-block mt-6 px-8 py-4 bg-[#ff7a18] text-white font-bold rounded-xl shadow-lg shadow-orange-200 hover:shadow-xl hover:-translate-y-1 transition-all">
+                Simplify your workflow.
+              </div>
+            </div>
+            <div className="flex-1">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-slate-200 border-8 border-white">
+                <Image src="/features/simplified_recruitment.png" alt="Recruitment Simplified" width={800} height={600} className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700" />
+              </div>
+            </div>
+          </div>
+
+          {/* Detailed Features Sections (Batch 2) */}
+          <div className="pt-20 mt-12 border-t border-slate-200 w-full" />
+          
+          {/* Feature 6 */}
+          <div className="flex flex-col md:flex-row-reverse items-center gap-12">
+            <div className="flex-1 space-y-6">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
+                Turn Your Inbox into a <br/>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-[#ff7a18]">Hiring Engine</span>
+              </h2>
+              <p className="text-xl text-slate-600 leading-relaxed">
+                Your inbox is more powerful than you think. Candexa AI transforms everyday emails into a structured, intelligent recruitment system—making candidate management easier, faster, and more effective.
+              </p>
+              <div className="inline-block mt-6 px-8 py-4 bg-[#ff7a18] text-white font-bold rounded-xl shadow-lg shadow-orange-200 hover:shadow-xl hover:-translate-y-1 transition-all">
+                Upgrade your hiring experience.
+              </div>
+            </div>
+            <div className="flex-1">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-slate-200 border-8 border-white bg-slate-100">
+                <Image src="/features/inbox_hiring_engine.png" alt="Turn Your Inbox into a Hiring Engine" width={800} height={600} className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700" />
+              </div>
+            </div>
+          </div>
+
+          {/* Feature 7 */}
+          <div className="flex flex-col md:flex-row items-center gap-12">
+            <div className="flex-1 space-y-6">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
+                This Is What Modern <br/>
+                <span className="text-[#ff7a18]">Hiring Looks Like</span>
+              </h2>
+              <p className="text-xl text-slate-600 leading-relaxed">
+                Recruitment is evolving—and staying ahead requires smarter tools. Candexa AI combines AI, automation, and data insights to deliver a faster, fairer, and more efficient hiring experience.
+              </p>
+              <div className="inline-block mt-6 px-8 py-4 bg-[#ff7a18] text-white font-bold rounded-xl shadow-lg shadow-orange-200">
+                Step into the future.
+              </div>
+            </div>
+            <div className="flex-1">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-slate-200 border-8 border-white">
+                <Image src="https://images.unsplash.com/photo-1573164713988-8665fc963095?w=800&q=80" alt="Modern Hiring Looks Like" width={800} height={600} className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700" unoptimized />
+              </div>
+            </div>
+          </div>
+
+          {/* Feature 8 */}
+          <div className="flex flex-col md:flex-row-reverse items-center gap-12">
+            <div className="flex-1 space-y-6">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
+                Visibility You've <br/>
+                <span className="text-slate-500">Never Had Before</span>
+              </h2>
+              <p className="text-xl text-slate-600 leading-relaxed">
+                Lack of visibility can lead to missed opportunities and poor decisions. Candexa AI gives you a clear view of your entire hiring pipeline, so you always know where each candidate stands.
+              </p>
+              <div className="inline-block mt-6 px-8 py-4 bg-[#ff7a18] text-white font-bold rounded-xl shadow-lg shadow-orange-200">
+                Stay in control.
+              </div>
+            </div>
+            <div className="flex-1">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-slate-200 border-8 border-white">
+                <Image src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80" alt="Visibility You've Never Had Before" width={800} height={600} className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700" unoptimized />
+              </div>
+            </div>
+          </div>
+
+          {/* Feature 9 */}
+          <div className="flex flex-col md:flex-row items-center gap-12">
+            <div className="flex-1 space-y-6">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
+                Diversity Drives <br/>
+                <span className="text-[#ff7a18]">Innovation</span>
+              </h2>
+              <p className="text-xl text-slate-600 leading-relaxed">
+                When bias influences hiring, opportunities are lost and teams suffer. Candexa AI promotes fair evaluation, helping you build diverse, inclusive teams that drive creativity, innovation, and long-term success.
+              </p>
+              <div className="inline-block mt-6 px-8 py-4 bg-[#ff7a18] text-white font-bold rounded-xl shadow-lg shadow-orange-200">
+                Hire for impact
+              </div>
+            </div>
+            <div className="flex-1">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-slate-200 border-8 border-white bg-slate-100">
+                <Image src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80" alt="Diversity Drives Innovation" width={800} height={600} className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700" unoptimized />
+              </div>
+            </div>
+          </div>
+
+          {/* Feature 10 */}
+          <div className="flex flex-col md:flex-row-reverse items-center gap-12">
+            <div className="flex-1 space-y-6">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
+                What's Slowing <br/>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500">Down Your Hiring?</span>
+              </h2>
+              <p className="text-xl text-slate-600 leading-relaxed">
+                Disconnected systems and manual processes create unnecessary delays. Candexa AI streamlines your hiring workflow into one seamless system, removing bottlenecks and helping your team make faster, better decisions.
+              </p>
+              <div className="inline-block mt-6 px-8 py-4 bg-[#ff7a18] text-white font-bold rounded-xl shadow-lg shadow-orange-200 hover:shadow-xl hover:-translate-y-1 transition-all">
+                Eliminate delays today
+              </div>
+            </div>
+            <div className="flex-1">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-slate-200 border-8 border-white">
+                <Image src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80" alt="What's Slowing Down Your Hiring?" width={800} height={600} className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700" unoptimized />
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
       {/* Stats Section */}
       <section className="py-20 bg-[#ff7a18]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
