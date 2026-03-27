@@ -1,8 +1,13 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
-
 export const config = {
   api: {
-    assessment: `${API_URL}/api/assessment`,
+    assessment: '/api/assessment',
+    result: (id: string) => `/api/result/${id}`,
+    callback: '/api/callback',
+    health: '/api/health',
+  },
+  polling: {
+    intervalMs: 3000,
+    maxAttempts: 60,
   },
 };
 
