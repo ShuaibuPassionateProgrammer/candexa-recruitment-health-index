@@ -153,7 +153,9 @@ export default function AssessmentPage() {
         throw new Error(data.error || data.errors?.join(', ') || 'Failed to submit assessment');
       }
 
-      router.push(`/results?data=${encodeURIComponent(JSON.stringify(data))}`);
+      // Redirect to results page with the assessment ID
+      // The results page will poll for results until they're available
+      router.push(`/results?id=${data.id}`);
     } catch (error) {
       setServerError(error instanceof Error ? error.message : 'Failed to submit assessment. Please try again.');
     } finally {
@@ -363,7 +365,7 @@ export default function AssessmentPage() {
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
                       </svg>
-                      Analyzing...
+                      Analyzing your recruitment data...
                     </span>
                   ) : (
                     'Get My Recruitment Score'
