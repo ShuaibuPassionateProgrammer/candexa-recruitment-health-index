@@ -30,14 +30,9 @@ export async function GET(
     const result = await getAssessmentById(id);
     
     if (!result) {
-      return NextResponse.json(
-        {
-          error: 'Result not found',
-          message: 'Assessment is still being processed or does not exist',
-          status: 'pending'
-        },
-        { status: 404 }
-      );
+      return NextResponse.json({
+        status: 'processing'
+      });
     }
     
     return NextResponse.json(result);

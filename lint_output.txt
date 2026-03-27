@@ -1,0 +1,26 @@
+
+> candexa-recruitment-health-index@1.0.0 lint
+> eslint
+
+
+C:\Users\Shuaibu\ProgrammingWorkspace\WebBased\DynamicWebsite\candexa-recruitment-health-index\app\analytics\page.tsx
+  184:10  warning  'user' is assigned a value but never used      @typescript-eslint/no-unused-vars
+  205:9   warning  'maxScore' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Shuaibu\ProgrammingWorkspace\WebBased\DynamicWebsite\candexa-recruitment-health-index\app\api\callback\route.ts
+  50:5  error  Use "@ts-expect-error" instead of "@ts-ignore", as "@ts-ignore" will do nothing if the following line is error-free  @typescript-eslint/ban-ts-comment
+
+C:\Users\Shuaibu\ProgrammingWorkspace\WebBased\DynamicWebsite\candexa-recruitment-health-index\app\candidate-feedback\page.tsx
+  4:8  warning  'Image' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Shuaibu\ProgrammingWorkspace\WebBased\DynamicWebsite\candexa-recruitment-health-index\app\page.tsx
+  154:31  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  219:24  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  305:31  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  347:21  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\Shuaibu\ProgrammingWorkspace\WebBased\DynamicWebsite\candexa-recruitment-health-index\lib\airtable.ts
+  233:1  warning  Assign object to a variable before exporting as module default  import/no-anonymous-default-export
+
+✖ 9 problems (5 errors, 4 warnings)
+
