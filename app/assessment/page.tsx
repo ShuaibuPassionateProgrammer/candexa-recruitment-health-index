@@ -106,16 +106,8 @@ export default function AssessmentPage() {
       newErrors.interviewToOfferRatio = 'Please enter a valid number';
     }
 
-    if (formData.diversityScore < 0 || formData.diversityScore > 10) {
-      newErrors.diversityScore = 'Diversity score must be between 0 and 10';
-    }
-
-    const nps = parseInt(formData.candidateNPS);
-    if (!formData.candidateNPS) {
-      newErrors.candidateNPS = 'Candidate NPS is required';
-    } else if (isNaN(nps) || nps < -100 || nps > 100) {
-      newErrors.candidateNPS = 'Must be between -100 and 100';
-    }
+    // diversityScore and candidateNPS have been removed from the UI.
+    // They are handled as defaults in the API.
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -142,8 +134,9 @@ export default function AssessmentPage() {
           timeToHire: parseFloat(formData.timeToHire),
           offerAcceptanceRate: parseFloat(formData.offerAcceptanceRate),
           interviewToOfferRatio: parseFloat(formData.interviewToOfferRatio),
-          diversityScore: formData.diversityScore,
-          candidateNPS: parseInt(formData.candidateNPS)
+          // Defaults for removed fields
+          diversityScore: formData.diversityScore || 5,
+          candidateNPS: parseInt(formData.candidateNPS) || 0
         })
       });
 
@@ -309,48 +302,6 @@ export default function AssessmentPage() {
                     />
                     {errors.interviewToOfferRatio && <p className="mt-1 text-sm text-red-600">{errors.interviewToOfferRatio}</p>}
                   </div>
-
-                  {/* Candidate NPS */}
-                  <div>
-                    <label htmlFor="candidateNPS" className="block text-sm font-medium text-slate-700 mb-1">
-                      Candidate NPS (-100 to 100)
-                    </label>
-                    <input
-                      type="number"
-                      id="candidateNPS"
-                      name="candidateNPS"
-                      value={formData.candidateNPS}
-                      onChange={handleChange}
-                      min="-100"
-                      max="100"
-                      className={`w-full px-4 py-3 rounded-lg border ${errors.candidateNPS ? 'border-red-500' : 'border-slate-300'} focus:ring-2 focus:ring-[#ff7a18] focus:border-[#ff7a18] transition-colors`}
-                      placeholder="35"
-                    />
-                    {errors.candidateNPS && <p className="mt-1 text-sm text-red-600">{errors.candidateNPS}</p>}
-                  </div>
-                </div>
-
-                {/* Diversity Score Slider */}
-                <div>
-                  <label htmlFor="diversityScore" className="block text-sm font-medium text-slate-700 mb-1">
-                    Diversity Score: <span className="text-[#ff7a18] font-semibold">{formData.diversityScore}/10</span>
-                  </label>
-                  <input
-                    type="range"
-                    id="diversityScore"
-                    name="diversityScore"
-                    value={formData.diversityScore}
-                    onChange={(e) => setFormData(prev => ({ ...prev, diversityScore: parseFloat(e.target.value) }))}
-                    min="0"
-                    max="10"
-                    step="0.5"
-                    className="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-[#ff7a18]"
-                  />
-                  <div className="flex justify-between text-xs text-slate-500 mt-1">
-                    <span>Low</span>
-                    <span>High</span>
-                  </div>
-                  {errors.diversityScore && <p className="mt-1 text-sm text-red-600">{errors.diversityScore}</p>}
                 </div>
 
                 {/* Submit Button */}

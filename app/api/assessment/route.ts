@@ -60,10 +60,14 @@ function validateAssessmentData(data: unknown): { valid: boolean; errors: string
   if (typeof d.interviewToOfferRatio !== 'number' || d.interviewToOfferRatio < 0) {
     errors.push('Interview to offer ratio must be a positive number');
   }
-  if (typeof d.diversityScore !== 'number' || d.diversityScore < 0 || d.diversityScore > 10) {
+  // diversityScore and candidateNPS are now optional with defaults
+  const diversityScore = typeof d.diversityScore === 'number' ? d.diversityScore : 5;
+  const candidateNPS = typeof d.candidateNPS === 'number' ? d.candidateNPS : 0;
+
+  if (diversityScore < 0 || diversityScore > 10) {
     errors.push('Diversity score must be between 0 and 10');
   }
-  if (typeof d.candidateNPS !== 'number' || d.candidateNPS < -100 || d.candidateNPS > 100) {
+  if (candidateNPS < -100 || candidateNPS > 100) {
     errors.push('Candidate NPS must be between -100 and 100');
   }
 
@@ -92,8 +96,8 @@ export async function POST(request: NextRequest) {
       timeToHire: formData.timeToHire,
       offerAcceptanceRate: formData.offerAcceptanceRate,
       interviewToOfferRatio: formData.interviewToOfferRatio,
-      diversityScore: formData.diversityScore,
-      candidateNPS: formData.candidateNPS,
+      diversityScore: typeof formData.diversityScore === 'number' ? formData.diversityScore : 5,
+      candidateNPS: typeof formData.candidateNPS === 'number' ? formData.candidateNPS : 0,
       submittedAt: new Date().toISOString()
     };
 
@@ -116,7 +120,7 @@ export async function POST(request: NextRequest) {
     }
 
     return NextResponse.json({
-      message: 'Processing started',
+      success: true,
       id: assessmentId
     });
 

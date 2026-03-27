@@ -14,17 +14,14 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { saveAssessmentResult, type AssessmentResult } from '@/lib/airtable';
 
-interface CallbackData {
+interface CallbackData extends Partial<AssessmentResult> {
   id: string;
-  score?: number;
-  rating?: string;
-  insights?: string[];
-  breakdown?: AssessmentResult['breakdown'];
 }
 
 export async function POST(request: NextRequest) {
   try {
-    const { id, score, rating, insights, breakdown }: CallbackData = await request.json();
+    const body: CallbackData = await request.json();
+    const { id, score, rating, insights, breakdown, ...otherFields } = body;
     
     if (!id) {
       return NextResponse.json(
@@ -33,15 +30,23 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    if (score === undefined || rating === undefined || insights === undefined) {
+      return NextResponse.json(
+        { error: 'Incomplete data: score, rating, and insights are required' },
+        { status: 400 }
+      );
+    }
+
     const resultData = {
       id,
-      score: score || 0,
-      rating: rating || 'Pending',
-      insights: insights || [],
+      score: typeof score === 'number' ? score : (Number(score) || 0),
+      rating: String(rating || 'Pending'),
+      insights: Array.isArray(insights) ? insights : (insights ? [String(insights)] : []),
       breakdown: breakdown || undefined,
-      processedAt: new Date().toISOString()
+      processedAt: new Date().toISOString(),
+      ...otherFields
     };
-
+    
     const savedRecord = await saveAssessmentResult(resultData);
     
     console.log(`Assessment ${id} result saved to Airtable:`, savedRecord);

@@ -181,7 +181,6 @@ function MetricCard({ metric }: { metric: MetricCard }) {
 export default function AnalyticsPage() {
   const router = useRouter();
   const [isReady, setIsReady] = useState(false);
-  const [user, setUser] = useState<{ companyName: string } | null>(null);
   const [selectedPeriod, setSelectedPeriod] = useState('6months');
   
   useEffect(() => {
@@ -189,7 +188,6 @@ export default function AnalyticsPage() {
     if (!currentUser) {
       router.push('/login');
     } else {
-      setUser(currentUser);
       setIsReady(true);
     }
   }, [router]);
@@ -202,7 +200,7 @@ export default function AnalyticsPage() {
     );
   }
 
-  const maxScore = Math.max(...monthlyTrends.map(m => m.score));
+  // maxScore is calculated based on monthly trends
   const avgScore = Math.round(monthlyTrends.reduce((acc, m) => acc + m.score, 0) / monthlyTrends.length);
 
   return (

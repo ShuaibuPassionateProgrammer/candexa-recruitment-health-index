@@ -14,7 +14,7 @@
 
 const AIRTABLE_API_KEY = process.env.AIRTABLE_API_KEY;
 const AIRTABLE_BASE_ID = process.env.AIRTABLE_BASE_ID;
-const AIRTABLE_TABLE_NAME = process.env.AIRTABLE_TABLE_NAME || 'Assessments';
+const AIRTABLE_TABLE_NAME = process.env.AIRTABLE_TABLE_NAME || 'Parsed Resumes';
 const AIRTABLE_BASE_URL = 'https://api.airtable.com/v0';
 
 export interface AssessmentResult {
@@ -109,10 +109,15 @@ export async function saveAssessmentResult(data: SaveAssessmentData): Promise<{ 
 
     if (!response.ok) {
       const errorData = await response.json();
-      throw new Error(errorData.error?.message || 'Failed to save to Airtable');
+      const errorMessage = errorData.error?.message || 'Failed to save to Airtable';
+      console.error('Airtable Error Response:', errorData);
+      throw new Error(errorMessage);
     }
 
     const result = await response.json();
+    if (!result.records || result.records.length === 0) {
+      throw new Error('Airtable returned no records after save');
+    }
     return { id: result.records[0].id };
   } catch (error) {
     console.error('Airtable save error:', error);
@@ -225,7 +230,9 @@ function generateMockResult(assessmentId: string): AssessmentResult {
   };
 }
 
-export default {
+const airtableService = {
   saveAssessmentResult,
   getAssessmentById
 };
+
+export default airtableService;

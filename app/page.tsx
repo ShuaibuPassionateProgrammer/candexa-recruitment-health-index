@@ -151,7 +151,7 @@ export default function Home() {
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-[#ff7a18]">That Matter</span>
               </h2>
               <p className="text-xl text-slate-600 leading-relaxed">
-                Hiring shouldn't be based on guesswork or gut feeling. Candexa AI provides clear insights and data-backed recommendations, helping you confidently select the candidates who truly fit your needs.
+                Hiring shouldn&apos;t be based on guesswork or gut feeling. Candexa AI provides clear insights and data-backed recommendations, helping you confidently select the candidates who truly fit your needs.
               </p>
               <div className="inline-block mt-6 px-6 py-3 bg-[#ff7a18]/10 text-[#ff7a18] font-bold rounded-xl text-lg tracking-wide border border-[#ff7a18]/20">
                 Let data lead your hiring
@@ -216,7 +216,7 @@ export default function Home() {
             <div className="flex-1 space-y-6">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
                 Your Hiring Process <br/>
-                Shouldn't Be <span className="text-[#ff7a18]">This Slow</span>
+                Shouldn&apos;t Be <span className="text-[#ff7a18]">This Slow</span>
               </h2>
               <p className="text-xl text-slate-600 leading-relaxed">
                 Too many tools. Too many delays. Too much confusion. Candexa AI brings your entire hiring workflow into your email, reducing complexity and helping you move from application to decision faster than ever.
@@ -302,7 +302,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row-reverse items-center gap-12">
             <div className="flex-1 space-y-6">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
-                Visibility You've <br/>
+                Visibility You&apos;ve <br/>
                 <span className="text-slate-500">Never Had Before</span>
               </h2>
               <p className="text-xl text-slate-600 leading-relaxed">
@@ -344,7 +344,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row-reverse items-center gap-12">
             <div className="flex-1 space-y-6">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
-                What's Slowing <br/>
+                What&apos;s Slowing <br/>
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500">Down Your Hiring?</span>
               </h2>
               <p className="text-xl text-slate-600 leading-relaxed">
