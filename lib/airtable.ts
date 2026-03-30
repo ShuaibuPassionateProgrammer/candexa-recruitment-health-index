@@ -5,9 +5,9 @@
  * 
  * Data Flow:
  * 1. User submits assessment form
- * 2. POST /api/assessment sends data to Make.com webhook
- * 3. Make.com processes with AI and generates score/rating/insights
- * 4. Make.com calls POST /api/callback with results
+ * 2. POST /api/assessment sends data to Zapier webhook
+ * 3. Zapier processes and generates score/rating/insights
+ * 4. Zapier calls POST /api/callback with results
  * 5. This service saves results to Airtable
  * 6. GET /api/result/:id retrieves results from Airtable
  */
