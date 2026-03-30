@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import Navbar from '@/components/Navbar';
+import Chatbot from '@/components/Chatbot';
 
 export default function Home() {
   return (
@@ -514,6 +515,7 @@ export default function Home() {
           </div>
         </div>
       </footer>
+      <Chatbot />
     </div>
   );
 }
