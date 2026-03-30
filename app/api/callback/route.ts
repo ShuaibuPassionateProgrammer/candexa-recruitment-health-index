@@ -1,12 +1,12 @@
 /**
  * POST /api/callback
  * 
- * Receives processed results from Make.com and saves to Airtable.
+ * Receives processed results from Zapier and saves to Airtable.
  * 
  * Data Flow:
- * 1. Make.com receives assessment data via webhook trigger
- * 2. Make.com processes with AI and generates score/rating/insights
- * 3. Make.com makes an HTTP request to this endpoint
+ * 1. Zapier receives assessment data via webhook trigger
+ * 2. Zapier processes (e.g., via AI or other steps) and generates score/rating/insights
+ * 3. Zapier makes an HTTP request to this endpoint
  * 4. This route saves the results to Airtable
  * 5. Frontend polling eventually retrieves the saved results
  */

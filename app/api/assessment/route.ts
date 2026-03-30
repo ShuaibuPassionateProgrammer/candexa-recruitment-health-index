@@ -1,13 +1,13 @@
 /**
  * POST /api/assessment
  * 
- * Receives assessment form data, sends to Make.com webhook, returns assessment ID.
+ * Receives assessment form data, sends to Zapier webhook, returns assessment ID.
  * 
  * Data Flow:
  * 1. User submits assessment form from frontend
  * 2. Frontend calls POST /api/assessment
  * 3. This route generates a unique ID
- * 4. Sends data to Make.com webhook for AI processing
+ * 4. Sends data to Zapier webhook for AI processing
  * 5. Returns the assessment ID to frontend
  * 6. Frontend redirects to results page and starts polling
  */
@@ -101,21 +101,21 @@ export async function POST(request: NextRequest) {
       submittedAt: new Date().toISOString()
     };
 
-    const makeWebhookUrl = process.env.MAKE_WEBHOOK_URL;
+    const zapierWebhookUrl = process.env.ZAPIER_WEBHOOK_URL;
     
-    if (makeWebhookUrl) {
+    if (zapierWebhookUrl) {
       try {
-        await fetch(makeWebhookUrl, {
+        await fetch(zapierWebhookUrl, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(webhookPayload)
         });
-        console.log(`Assessment ${assessmentId} sent to Make.com webhook`);
+        console.log(`Assessment ${assessmentId} sent to Zapier webhook`);
       } catch (webhookError) {
-        console.error('Make.com webhook error:', webhookError);
+        console.error('Zapier webhook error:', webhookError);
       }
     } else {
-      console.log('MAKE_WEBHOOK_URL not configured - skipping webhook call');
+      console.log('ZAPIER_WEBHOOK_URL not configured - skipping webhook call');
       console.log('Webhook payload would be:', JSON.stringify(webhookPayload, null, 2));
     }
 
