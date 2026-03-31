@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
+import { faqData } from '@/data/faq';
 
 interface Message {
   id: string;
@@ -47,6 +48,40 @@ const Chatbot: React.FC = () => {
     const currentInput = inputValue;
     setInputValue('');
     setIsTyping(true);
+
+    // FAQ Smart Matching Check
+    const normalizedInput = currentInput.toLowerCase().trim();
+    const inputWords = normalizedInput.replace(/[^a-z0-9 ]/g, '').split(' ').filter(w => w.length > 3);
+    
+    let matchedAnswer: string | null = null;
+    for (const faq of faqData) {
+      const normalizedQ = faq.question.toLowerCase().trim();
+      const qWords = normalizedQ.replace(/[^a-z0-9 ]/g, '').split(' ').filter(w => w.length > 3);
+      
+      const isDirectMatch = normalizedInput.includes(normalizedQ) || normalizedQ.includes(normalizedInput);
+      const commonWords = inputWords.filter(w => qWords.includes(w));
+      const isKeywordMatch = commonWords.length >= 2;
+
+      if (isDirectMatch || isKeywordMatch) {
+        matchedAnswer = faq.answer;
+        break;
+      }
+    }
+
+    if (matchedAnswer) {
+      // Simulate typing delay for a natural feel
+      setTimeout(() => {
+        const botMessage: Message = {
+          id: (Date.now() + 1).toString(),
+          text: matchedAnswer as string,
+          sender: 'bot',
+          timestamp: new Date(),
+        };
+        setMessages((prev) => [...prev, botMessage]);
+        setIsTyping(false);
+      }, 500);
+      return;
+    }
 
     try {
       const response = await fetch('/api/chat', {
