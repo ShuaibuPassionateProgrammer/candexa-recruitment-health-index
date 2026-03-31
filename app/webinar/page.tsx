@@ -13,7 +13,6 @@ export default function WebinarPage() {
   const [videoId, setVideoId] = useState<string | null>(null);
   const [isLive, setIsLive] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const loadCount = useRef(0);
 
@@ -50,7 +49,6 @@ export default function WebinarPage() {
         }
       } catch (err) {
         console.error('Error fetching stream:', err);
-        setError('Failed to load stream');
         setIsLoading(false);
       }
     }

@@ -1,10 +1,8 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
 import Sidebar from '@/components/Sidebar';
 
 export default function AssessmentPage() {
-  const router = useRouter();
   // Google Form Integration: Custom form logic replaced by iframe embed.
 
   return (
