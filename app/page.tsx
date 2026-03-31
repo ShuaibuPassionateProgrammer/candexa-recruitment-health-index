@@ -2,6 +2,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Chatbot from '@/components/Chatbot';
+import FAQ from '@/components/FAQ';
+import { faqData } from '@/data/faq';
 
 export default function Home() {
   return (
@@ -627,6 +629,21 @@ export default function Home() {
               </Link>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 lg:py-32 bg-white border-t border-slate-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              Everything you need to know about Candexa AI and how it transforms your hiring process.
+            </p>
+          </div>
+          <FAQ data={faqData} />
         </div>
       </section>
 
