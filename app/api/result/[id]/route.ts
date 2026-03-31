@@ -11,7 +11,6 @@
  */
 
 import { NextRequest, NextResponse } from 'next/server';
-import { getAssessmentById } from '@/lib/airtable';
 
 export async function GET(
   request: NextRequest,
@@ -20,27 +19,19 @@ export async function GET(
   try {
     const { id } = await params;
     
-    if (!id) {
-      return NextResponse.json(
-        { error: 'Assessment ID is required' },
-        { status: 400 }
-      );
-    }
+    // Result fetching from Airtable has been discontinued in favor of Google Forms.
+    // All assessment data is now managed directly within the Google Form responses.
     
-    const result = await getAssessmentById(id);
-    
-    if (!result) {
-      return NextResponse.json({
-        status: 'processing'
-      });
-    }
-    
-    return NextResponse.json(result);
+    return NextResponse.json({
+      status: 'migrated',
+      message: 'The assessment system has migrated to Google Forms. Please check your Google Form responses for results.',
+      id: id
+    }, { status: 404 });
 
   } catch (error) {
     console.error('Result fetch error:', error);
     return NextResponse.json(
-      { error: 'Failed to fetch result', message: error instanceof Error ? error.message : 'Unknown error' },
+      { error: 'Failed to fetch result' },
       { status: 500 }
     );
   }

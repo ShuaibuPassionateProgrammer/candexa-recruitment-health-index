@@ -7,14 +7,14 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
-      
+
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-slate-50 via-orange-50 to-amber-50 py-20 lg:py-32">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-40 -right-40 w-80 h-80 bg-amber-200 rounded-full opacity-30 blur-3xl"></div>
           <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-orange-200 rounded-full opacity-30 blur-3xl"></div>
         </div>
-        
+
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
             {/* <div className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium mb-6">
@@ -23,19 +23,19 @@ export default function Home() {
               </svg>
               Now with AI-powered insights
             </div> */}
-            
+
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight mb-6">
               AI-Powered{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff7a18] to-[#ff7a18]">
                 Recruitment Health Index
               </span>
             </h1>
-            
+
             <p className="text-xl text-slate-600 mb-10 max-w-2xl mx-auto">
-              Measure, analyze, and improve your hiring performance with data-driven insights. 
+              Measure, analyze, and improve your hiring performance with data-driven insights.
               Transform your recruitment process today.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/register"
@@ -143,12 +143,12 @@ export default function Home() {
       {/* Detailed Features Sections */}
       <section className="py-20 lg:py-32 bg-slate-50 border-y border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-32">
-          
+
           {/* Feature 1 */}
           <div className="flex flex-col md:flex-row items-center gap-12">
             <div className="flex-1 space-y-6">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
-                Make Decisions <br/>
+                Make Decisions <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-[#ff7a18]">That Matter</span>
               </h2>
               <p className="text-xl text-slate-600 leading-relaxed">
@@ -169,7 +169,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row-reverse items-center gap-12">
             <div className="flex-1 space-y-6">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
-                Stop Letting Bias Cost You <br/>
+                Stop Letting Bias Cost You <br />
                 <span className="text-[#ff7a18]">Great Talent</span>
               </h2>
               <p className="text-xl text-slate-600 leading-relaxed">
@@ -195,7 +195,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row items-center gap-12">
             <div className="flex-1 space-y-6">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
-                Let AI Do the <br/>
+                Let AI Do the <br />
                 <span className="text-slate-500">Heavy Lifting</span>
               </h2>
               <p className="text-xl text-slate-600 leading-relaxed">
@@ -216,7 +216,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row-reverse items-center gap-12">
             <div className="flex-1 space-y-6">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
-                Your Hiring Process <br/>
+                Your Hiring Process <br />
                 Shouldn&apos;t Be <span className="text-[#ff7a18]">This Slow</span>
               </h2>
               <p className="text-xl text-slate-600 leading-relaxed">
@@ -237,7 +237,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row items-center gap-12">
             <div className="flex-1 space-y-6">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-400 leading-tight">
-                Recruitment, <br/>
+                Recruitment, <br />
                 <span className="text-slate-900">Simplified</span>
               </h2>
               <p className="text-xl text-slate-600 leading-relaxed">
@@ -256,12 +256,12 @@ export default function Home() {
 
           {/* Detailed Features Sections (Batch 2) */}
           <div className="pt-20 mt-12 border-t border-slate-200 w-full" />
-          
+
           {/* Feature 6 */}
           <div className="flex flex-col md:flex-row-reverse items-center gap-12">
             <div className="flex-1 space-y-6">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
-                Turn Your Inbox into a <br/>
+                Turn Your Inbox into a <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-[#ff7a18]">Hiring Engine</span>
               </h2>
               <p className="text-xl text-slate-600 leading-relaxed">
@@ -282,7 +282,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row items-center gap-12">
             <div className="flex-1 space-y-6">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
-                This Is What Modern <br/>
+                This Is What Modern <br />
                 <span className="text-[#ff7a18]">Hiring Looks Like</span>
               </h2>
               <p className="text-xl text-slate-600 leading-relaxed">
@@ -303,7 +303,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row-reverse items-center gap-12">
             <div className="flex-1 space-y-6">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
-                Visibility You&apos;ve <br/>
+                Visibility You&apos;ve <br />
                 <span className="text-slate-500">Never Had Before</span>
               </h2>
               <p className="text-xl text-slate-600 leading-relaxed">
@@ -324,7 +324,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row items-center gap-12">
             <div className="flex-1 space-y-6">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
-                Diversity Drives <br/>
+                Diversity Drives <br />
                 <span className="text-[#ff7a18]">Innovation</span>
               </h2>
               <p className="text-xl text-slate-600 leading-relaxed">
@@ -345,7 +345,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row-reverse items-center gap-12">
             <div className="flex-1 space-y-6">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
-                What&apos;s Slowing <br/>
+                What&apos;s Slowing <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500">Down Your Hiring?</span>
               </h2>
               <p className="text-xl text-slate-600 leading-relaxed">
@@ -480,7 +480,156 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Webinar Section */}
+      <section className="py-20 lg:py-32 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 to-slate-800"></div>
+        <div className="absolute -top-24 -right-24 w-96 h-96 bg-[#ff7a18] rounded-full opacity-10 blur-3xl"></div>
+        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-orange-500 rounded-full opacity-10 blur-3xl"></div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+            <div className="flex-1 text-center lg:text-left">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-orange-500/10 text-[#ff7a18] rounded-full text-sm font-bold mb-6 border border-orange-500/20">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+                </span>
+                LIVE WEBINAR
+              </div>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+                Master the Art of <br />
+                <span className="text-[#ff7a18]">AI-Driven Recruitment</span>
+              </h2>
+              <p className="text-xl text-slate-300 mb-8 leading-relaxed">
+                Join our exclusive live sessions and learn how to leverage AI to
+                find, attract, and hire the best talent in record time.
+              </p>
+              <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
+                <Link
+                  href="/webinar"
+                  className="px-8 py-4 bg-[#ff7a18] hover:bg-[#e66a10] text-white font-bold rounded-xl transition-all shadow-lg shadow-orange-900/20 hover:-translate-y-1"
+                >
+                  Join Live Session
+                </Link>
+                <Link
+                  href="#"
+                  className="px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-bold rounded-xl transition-all border border-white/20 backdrop-blur-sm"
+                >
+                  Watch Past Recordings
+                </Link>
+              </div>
+            </div>
+
+            <div className="flex-1 relative">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10 aspect-video group">
+                <div className="absolute inset-0 bg-slate-900/40 group-hover:bg-slate-900/20 transition-colors z-10 flex items-center justify-center">
+                  <div className="w-20 h-20 bg-[#ff7a18] rounded-full flex items-center justify-center shadow-2xl shadow-orange-500/40 group-hover:scale-110 transition-transform">
+                    <svg className="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </div>
+                </div>
+                <Image
+                  src="https://images.unsplash.com/photo-1591115765373-520b7a42a1fd?w=800&q=80"
+                  alt="Webinar Preview"
+                  width={800}
+                  height={450}
+                  className="w-full h-full object-cover grayscale-[0.2]"
+                  unoptimized
+                />
+              </div>
+
+              {/* Floating Badge */}
+              <div className="absolute -bottom-6 -right-6 lg:-right-10 bg-white p-4 rounded-xl shadow-2xl border border-slate-100 hidden sm:flex items-center gap-4 z-20">
+                <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+                  <svg className="w-6 h-6 text-[#ff7a18]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <div className="text-xs text-slate-500 font-bold uppercase tracking-wider">Next Session</div>
+                  <div className="text-sm font-bold text-slate-900">Every Thursday, 10 AM</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* Blog Section */}
+      <section className="py-20 lg:py-32 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+            <div className="max-w-2xl">
+              <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
+                Latest Insights & <span className="text-[#ff7a18]">Recruitment Trends</span>
+              </h2>
+              <p className="text-lg text-slate-600">
+                Stay updated with the latest thinking on AI-driven hiring, bias reduction, and performance metrics.
+              </p>
+            </div>
+            <Link
+              href="/blog"
+              className="inline-flex items-center text-[#ff7a18] font-bold hover:gap-2 transition-all group"
+            >
+              View all articles
+              <svg className="w-5 h-5 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+            {/* Blog Post 1 */}
+            <div className="group bg-slate-50 rounded-3xl p-8 border border-slate-100 hover:border-orange-100 hover:shadow-2xl hover:shadow-orange-500/5 transition-all flex flex-col">
+              <div className="flex items-center gap-3 text-xs font-bold text-slate-400 mb-6 uppercase tracking-widest">
+                <span>March 31, 2026</span>
+                <span className="w-1 h-1 rounded-full bg-slate-300"></span>
+                <span>5 min read</span>
+              </div>
+              <h3 className="text-2xl font-bold text-slate-900 mb-4 group-hover:text-[#ff7a18] transition-colors leading-tight">
+                What Is Agentic AI in Hiring? (And Why It Might Be the End of Bias)
+              </h3>
+              <p className="text-slate-600 mb-8 flex-grow">
+                Discover how agentic AI is transforming the recruitment landscape by moving beyond simple automation to proactive reasoning and bias reduction.
+              </p>
+              <Link
+                href="/blog/agentic-ai-hiring"
+                className="inline-flex items-center text-[#ff7a18] font-bold"
+              >
+                Read More
+                <svg className="w-5 h-5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
+            </div>
+
+            {/* Blog Post 2 */}
+            <div className="group bg-slate-50 rounded-3xl p-8 border border-slate-100 hover:border-orange-100 hover:shadow-2xl hover:shadow-orange-500/5 transition-all flex flex-col">
+              <div className="flex items-center gap-3 text-xs font-bold text-slate-400 mb-6 uppercase tracking-widest">
+                <span>March 28, 2026</span>
+                <span className="w-1 h-1 rounded-full bg-slate-300"></span>
+                <span>4 min read</span>
+              </div>
+              <h3 className="text-2xl font-bold text-slate-900 mb-4 group-hover:text-[#ff7a18] transition-colors leading-tight">
+                Why Companies Are Moving Away From Traditional ATS
+              </h3>
+              <p className="text-slate-600 mb-8 flex-grow">
+                Legacy Applicant Tracking Systems (ATS) are becoming bottlenecks. Learn why modern companies are switching to leaner, AI-driven alternatives.
+              </p>
+              <Link
+                href="/blog/traditional-ats-problems"
+                className="inline-flex items-center text-[#ff7a18] font-bold"
+              >
+                Read More
+                <svg className="w-5 h-5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="py-20 lg:py-32 bg-slate-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-6">
