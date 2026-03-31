@@ -44,6 +44,22 @@ export default function Navbar() {
             >
               Home
             </Link>
+            <Link
+              href="/webinar"
+              className={`text-sm font-medium transition-colors ${
+                isActive('/webinar') ? 'text-[#ff7a18]' : 'text-slate-600 hover:text-slate-900'
+              }`}
+            >
+              Webinar
+            </Link>
+            <Link
+              href="/blog"
+              className={`text-sm font-medium transition-colors ${
+                isActive('/blog') ? 'text-[#ff7a18]' : 'text-slate-600 hover:text-slate-900'
+              }`}
+            >
+              Blog
+            </Link>
             
             {isLoggedIn ? (
               <>
@@ -122,6 +138,24 @@ export default function Navbar() {
                 }`}
               >
                 Home
+              </Link>
+              <Link
+                href="/webinar"
+                onClick={() => setIsMenuOpen(false)}
+                className={`text-base font-medium ${
+                  isActive('/webinar') ? 'text-[#ff7a18]' : 'text-slate-600'
+                }`}
+              >
+                Webinar
+              </Link>
+              <Link
+                href="/blog"
+                onClick={() => setIsMenuOpen(false)}
+                className={`text-base font-medium ${
+                  isActive('/blog') ? 'text-[#ff7a18]' : 'text-slate-600'
+                }`}
+              >
+                Blog
               </Link>
               
               {isLoggedIn ? (
