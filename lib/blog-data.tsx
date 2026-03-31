@@ -85,6 +85,64 @@ export const blogPosts: BlogPost[] = [
         </p>
       </div>
     )
+  },
+  {
+    slug: 'hire-faster-inbox',
+    title: 'How to Hire Faster Using Your Inbox – Yes, Your Inbox',
+    excerpt: 'Stop switching between endless tools. Learn how to turn your email inbox into a powerful hiring engine that sources, screens, and schedules with Candexa AI.',
+    publishedDate: 'March 31, 2026',
+    readingTime: '4 min read',
+    content: (
+      <div className="space-y-6 text-slate-700 leading-relaxed">
+        <p className="text-lg font-medium text-slate-800">
+          The modern recruiter is drowning in tabs. Between LinkedIn, the ATS, scheduling tools, and endless spreadsheets, the actual &quot;human&quot; part of human resources is getting lost in the shuffle.
+        </p>
+
+        <h2 className="text-2xl font-bold text-slate-900 mt-8">The Real Problem: Too Many Tools, Too Little Time</h2>
+        <p>
+          Recruiters spend approximately <strong>60% of their day on administrative work</strong>. Every time you switch from your inbox to another platform to check a candidate&apos;s status or log a note, you lose focus and momentum. This &quot;tool switching tax&quot; is the silent killer of hiring efficiency.
+        </p>
+
+        <h2 className="text-2xl font-bold text-slate-900 mt-8">The Simple Truth</h2>
+        <p>
+          Email is universal. It&apos;s where communication naturally happens. The problem isn&apos;t that we use email; it&apos;s that our inboxes lack the intelligence to handle the recruitment lifecycle.
+        </p>
+
+        <h2 className="text-2xl font-bold text-slate-900 mt-8">How Candexa AI Turns Your Inbox Into a Hiring Engine</h2>
+        <p>
+          Instead of forcing you to leave your workflow, Candexa AI brings the power of an advanced recruitment platform directly to where you already spend your time.
+        </p>
+        <ul className="list-disc pl-6 space-y-4">
+          <li><strong>Source:</strong> Identify top talent from incoming inquiries automatically.</li>
+          <li><strong>Screen:</strong> AI-driven evaluation of resumes and profiles without opening a new tab.</li>
+          <li><strong>Schedule:</strong> Intelligent meeting coordination that respects your calendar.</li>
+          <li><strong>Track:</strong> Instant status updates and pipeline health checks within your thread.</li>
+        </ul>
+
+        <div className="bg-orange-50 p-6 rounded-2xl border border-orange-100 my-8">
+          <h3 className="text-lg font-bold text-slate-900 mb-2">The Results:</h3>
+          <ul className="grid sm:grid-cols-3 gap-4 text-sm font-semibold text-[#ff7a18]">
+            <li className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#ff7a18]"></span>
+              Faster Responses
+            </li>
+            <li className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#ff7a18]"></span>
+              Shorter Hiring Cycles
+            </li>
+            <li className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#ff7a18]"></span>
+              Zero Wasted Time
+            </li>
+          </ul>
+        </div>
+
+        <h2 className="text-2xl font-bold text-slate-900 mt-8">The Bottom Line</h2>
+        <p>
+          In a competitive talent market, <strong>speed + communication wins talent</strong>. By transforming your inbox from a static message list into an active hiring engine, you&apos;re not just working faster—you&apos;re working smarter.
+        </p>
+      </div>
+    )
   }
 ];
 
