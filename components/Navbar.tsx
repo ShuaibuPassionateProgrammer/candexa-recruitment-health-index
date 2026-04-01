@@ -60,6 +60,14 @@ export default function Navbar() {
             >
               Blog
             </Link>
+            <Link
+              href="/candidate-feedback"
+              className={`text-sm font-medium transition-colors ${
+                isActive('/candidate-feedback') ? 'text-[#ff7a18]' : 'text-slate-600 hover:text-slate-900'
+              }`}
+            >
+              Feedback
+            </Link>
             
             {isLoggedIn ? (
               <>
@@ -156,6 +164,15 @@ export default function Navbar() {
                 }`}
               >
                 Blog
+              </Link>
+              <Link
+                href="/candidate-feedback"
+                onClick={() => setIsMenuOpen(false)}
+                className={`text-base font-medium ${
+                  isActive('/candidate-feedback') ? 'text-[#ff7a18]' : 'text-slate-600'
+                }`}
+              >
+                Feedback
               </Link>
               
               {isLoggedIn ? (

@@ -30,9 +30,14 @@ export default function AssessmentPage() {
               </div>
               
               <div className="p-2 lg:p-4">
-                <div className="relative w-full min-h-[1200px] bg-slate-50 rounded-xl overflow-hidden">
+                <div className="relative w-full min-h-[2000px] bg-slate-50 rounded-xl overflow-hidden">
                   <iframe 
-                    src="https://docs.google.com/forms/d/e/1FAIpQLSdIZhwOkl3jl8UfK50bRoh6cL58O-QbuKdHmGTvtZZRu5S73g/viewform?embedded=true" 
+                    src="https://docs.google.com/forms/d/e/1FAIpQLSfOOw632Pu14QFYjvq8o35Aew05AJSPuKcf1yKOfnC3B6Df2g/viewform?embedded=true" 
+                    width="640"
+                    height="2000"
+                    frameBorder={0}
+                    marginHeight={0}
+                    marginWidth={0}
                     className="absolute inset-0 w-full h-full border-none"
                     title="Assessment Form"
                   >
