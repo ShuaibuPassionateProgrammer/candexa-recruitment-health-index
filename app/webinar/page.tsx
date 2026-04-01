@@ -1,60 +1,78 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useRef } from 'react';
 import Navbar from '@/components/Navbar';
 import Chatbot from '@/components/Chatbot';
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 
-// Use basic search query as fallback if no channel ID is set
-const API_KEY = 'AIzaSyCMeBLtf4A1qLtgPbg8dFsNsnZA2unanWI';
-const CHANNEL_ID = process.env.NEXT_PUBLIC_YOUTUBE_CHANNEL_ID || '';
+const ZoomEmbed = dynamic(() => import('@/components/ZoomEmbed'), { ssr: false });
 
 export default function WebinarPage() {
-  const [videoId, setVideoId] = useState<string | null>(null);
-  const [isLive, setIsLive] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const loadCount = useRef(0);
 
-  useEffect(() => {
-    async function fetchLatestStream() {
-      if (!CHANNEL_ID) {
-        setIsLoading(false);
-        return;
-      }
+  // Zoom States
+  const [isHost, setIsHost] = useState<boolean>(false);
+  const [isZooming, setIsZooming] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  
+  // Meeting details
+  const [meetingDetails, setMeetingDetails] = useState<{ id: string; password?: string } | null>(null);
+  
+  // Forms
+  const [createForm, setCreateForm] = useState({ title: 'Live Webinar Session', date: '', duration: 60 });
+  const [joinForm, setJoinForm] = useState({ meetingId: '', password: '', name: '' });
+  
+  // Credentials from backend
+  const [signature, setSignature] = useState('');
+  const [sdkKey, setSdkKey] = useState('');
 
-      try {
-        const response = await fetch(
-          `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${CHANNEL_ID}&eventType=live&type=video&key=${API_KEY}&order=date`
-        );
-        const data = await response.json();
-
-        if (data.items && data.items.length > 0) {
-          setVideoId(data.items[0].id.videoId);
-          setIsLive(true);
-          setIsLoading(false);
-        } else {
-          // Check for upcoming
-          const upcomingResponse = await fetch(
-            `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${CHANNEL_ID}&eventType=upcoming&type=video&key=${API_KEY}&order=date`
-          );
-          const upcomingData = await upcomingResponse.json();
-          if (upcomingData.items && upcomingData.items.length > 0) {
-            setVideoId(upcomingData.items[0].id.videoId);
-            setIsLive(false);
-            setIsLoading(false);
-          } else {
-            setIsLoading(false);
-          }
-        }
-      } catch (err) {
-        console.error('Error fetching stream:', err);
-        setIsLoading(false);
+  const handleCreateMeeting = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+    try {
+      const res = await fetch('/api/zoom/create-meeting', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(createForm),
+      });
+      const data = await res.json();
+      if (data.meetingId) {
+        setMeetingDetails({ id: data.meetingId, password: data.password });
+        setJoinForm(prev => ({ ...prev, meetingId: data.meetingId, password: data.password || '' }));
+      } else if (data.error) {
+        alert(`Creation failed: ${data.error}`);
       }
+    } catch (err) {
+      console.error(err);
+      alert('Network error while creating meeting');
     }
+    setIsLoading(false);
+  };
 
-    fetchLatestStream();
-  }, []);
+  const generateSignatureAndJoin = async (roleNum: 0 | 1, meetingId: string) => {
+    setIsLoading(true);
+    try {
+      const res = await fetch('/api/zoom/signature', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ meetingNumber: meetingId, role: roleNum }),
+      });
+      const data = await res.json();
+      if (data.signature && data.sdkKey) {
+        setSignature(data.signature);
+        setSdkKey(data.sdkKey);
+        setIsZooming(true);
+      } else {
+        alert('Failed to generate secure signature to join webinar.');
+      }
+    } catch (err) {
+      console.error(err);
+      alert('Network error while joining meeting');
+    }
+    setIsLoading(false);
+  };
 
   const handleIframeLoad = () => {
     loadCount.current += 1;
@@ -88,56 +106,125 @@ export default function WebinarPage() {
         </div>
 
         <div className="flex flex-col gap-12 lg:gap-16">
-          {/* YouTube Section */}
+          {/* Zoom Webinar Section */}
           <section className="space-y-6">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center shadow-sm">
-                <svg className="w-6 h-6 text-red-600" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
-                </svg>
+            <div className="flex items-center justify-between gap-3">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center shadow-sm">
+                  <svg className="w-6 h-6 text-[#ff7a18]" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zm0 2v12h16V6H4zm11 3.5l4-2.5v10l-4-2.5v-5z"/>
+                  </svg>
+                </div>
+                <h2 className="text-2xl font-bold text-slate-900 tracking-tight">
+                  Live Webinar Session
+                </h2>
               </div>
-              <h2 className="text-2xl font-bold text-slate-900 tracking-tight">
-                {isLoading ? 'Checking Stream...' : isLive ? 'Watch Live Now' : 'Upcoming Event'}
-              </h2>
+              <div className="flex gap-2 bg-slate-100 p-1 rounded-lg">
+                <button 
+                  onClick={() => setIsHost(false)} 
+                  className={`px-4 py-2 text-sm font-medium rounded-md transition-all ${!isHost ? 'bg-white shadow text-[#ff7a18]' : 'text-slate-500 hover:text-slate-700'}`}
+                >
+                  Participant
+                </button>
+                <button 
+                  onClick={() => setIsHost(true)}
+                  className={`px-4 py-2 text-sm font-medium rounded-md transition-all ${isHost ? 'bg-white shadow text-[#ff7a18]' : 'text-slate-500 hover:text-slate-700'}`}
+                >
+                  Host
+                </button>
+              </div>
             </div>
             
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6">
-              {/* Video Player */}
-              <div className="lg:col-span-2 bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-200">
-                {isLoading ? (
-                  <div className="aspect-video bg-slate-100 flex items-center justify-center">
-                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600"></div>
-                  </div>
-                ) : videoId ? (
-                  <iframe
-                    className="w-full aspect-video"
-                    src={`https://www.youtube.com/embed/${videoId}?autoplay=${isLive ? 1 : 0}`}
-                    title="YouTube live stream"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                  ></iframe>
-                ) : (
-                  <div className="aspect-video bg-slate-900 flex items-center justify-center p-8 text-center">
-                    <div className="text-white space-y-4">
-                      <p className="text-xl font-medium text-white/90">No live stream detected</p>
-                      <p className="text-slate-400 text-sm">Please check back later or register below to get notified.</p>
+            <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-200 min-h-[500px] flex">
+              {isZooming && signature && sdkKey ? (
+                <div className="w-full flex">
+                  <ZoomEmbed 
+                    meetingNumber={isHost ? (meetingDetails?.id || '') : joinForm.meetingId}
+                    userName={isHost ? 'Host' : (joinForm.name || 'Participant')}
+                    signature={signature}
+                    sdkKey={sdkKey}
+                    password={isHost ? (meetingDetails?.password || '') : joinForm.password}
+                  />
+                </div>
+              ) : (
+                <div className="w-full p-8 flex flex-col items-center justify-center bg-slate-50">
+                  {isHost ? (
+                    <div className="w-full max-w-md space-y-6">
+                      <div className="text-center">
+                        <h3 className="text-xl font-bold text-slate-900">Host Dashboard</h3>
+                        <p className="text-slate-500 text-sm mt-1">Create and start a new webinar</p>
+                      </div>
+                      
+                      {!meetingDetails ? (
+                        <form onSubmit={handleCreateMeeting} className="space-y-4 bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                          <div>
+                            <label className="block text-sm font-medium text-slate-700 mb-1">Webinar Title</label>
+                            <input type="text" value={createForm.title} onChange={e => setCreateForm({...createForm, title: e.target.value})} className="w-full px-3 py-2 border rounded-lg" required />
+                          </div>
+                          <div className="grid grid-cols-2 gap-4">
+                            <div>
+                              <label className="block text-sm font-medium text-slate-700 mb-1">Start Time</label>
+                              <input type="datetime-local" value={createForm.date} onChange={e => setCreateForm({...createForm, date: e.target.value})} className="w-full px-3 py-2 border rounded-lg" required />
+                            </div>
+                            <div>
+                              <label className="block text-sm font-medium text-slate-700 mb-1">Duration (min)</label>
+                              <input type="number" value={createForm.duration} onChange={e => setCreateForm({...createForm, duration: parseInt(e.target.value)})} className="w-full px-3 py-2 border rounded-lg" required />
+                            </div>
+                          </div>
+                          <button type="submit" disabled={isLoading} className="w-full bg-[#ff7a18] hover:bg-orange-600 text-white font-medium py-2.5 rounded-lg transition-colors disabled:opacity-50">
+                            {isLoading ? 'Creating...' : 'Create Webinar'}
+                          </button>
+                        </form>
+                      ) : (
+                        <div className="bg-white p-6 rounded-xl border border-orange-100 shadow-sm space-y-4">
+                          <div className="bg-orange-50 text-orange-800 p-4 rounded-lg text-sm">
+                            <p className="font-semibold mb-2">Webinar Created Successfully!</p>
+                            <p><strong>Meeting ID:</strong> {meetingDetails.id}</p>
+                            <p><strong>Passcode:</strong> {meetingDetails.password || 'None'}</p>
+                          </div>
+                          <button 
+                            onClick={() => generateSignatureAndJoin(1, meetingDetails.id)} 
+                            disabled={isLoading}
+                            className="w-full bg-[#ff7a18] hover:bg-orange-600 text-white font-medium py-2.5 rounded-lg transition-colors disabled:opacity-50"
+                          >
+                            {isLoading ? 'Starting...' : 'Start Webinar'}
+                          </button>
+                        </div>
+                      )}
                     </div>
-                  </div>
-                )}
-              </div>
-
-              {/* Live Chat */}
-              {videoId && isLive && (
-                <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-200 flex flex-col min-h-[400px] lg:min-h-full">
-                  <div className="px-4 py-3 border-b border-slate-100 bg-slate-50 flex items-center gap-2">
-                    <div className="w-2 h-2 bg-red-600 rounded-full animate-pulse"></div>
-                    <span className="text-sm font-semibold text-slate-700 uppercase tracking-wider">Live Chat</span>
-                  </div>
-                  <iframe
-                    src={`https://www.youtube.com/live_chat?v=${videoId}&embed_domain=${typeof window !== 'undefined' ? window.location.hostname : 'localhost'}`}
-                    className="flex-grow w-full border-none"
-                    title="YouTube live chat"
-                  ></iframe>
+                  ) : (
+                    <div className="w-full max-w-md space-y-6">
+                      <div className="text-center">
+                        <h3 className="text-xl font-bold text-slate-900">Join Webinar</h3>
+                        <p className="text-slate-500 text-sm mt-1">Enter meeting details to join</p>
+                      </div>
+                      
+                      <div className="space-y-4 bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                        <div>
+                          <label className="block text-sm font-medium text-slate-700 mb-1">Your Name</label>
+                          <input type="text" placeholder="John Doe" value={joinForm.name} onChange={e => setJoinForm({...joinForm, name: e.target.value})} className="w-full px-3 py-2 border rounded-lg" />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-slate-700 mb-1">Meeting ID</label>
+                          <input type="text" placeholder="123 456 7890" value={joinForm.meetingId} onChange={e => setJoinForm({...joinForm, meetingId: e.target.value})} className="w-full px-3 py-2 border rounded-lg" />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-slate-700 mb-1">Passcode</label>
+                          <input type="text" placeholder="Optional" value={joinForm.password} onChange={e => setJoinForm({...joinForm, password: e.target.value})} className="w-full px-3 py-2 border rounded-lg" />
+                        </div>
+                        <button 
+                          onClick={() => {
+                            if (!joinForm.meetingId) return alert('Meeting ID required');
+                            generateSignatureAndJoin(0, joinForm.meetingId);
+                          }}
+                          disabled={isLoading || !joinForm.meetingId}
+                          className="w-full bg-[#ff7a18] hover:bg-orange-600 text-white font-medium py-2.5 rounded-lg transition-colors disabled:opacity-50"
+                        >
+                          {isLoading ? 'Joining...' : 'Join Webinar'}
+                        </button>
+                      </div>
+                    </div>
+                  )}
                 </div>
               )}
             </div>
@@ -230,6 +317,11 @@ export default function WebinarPage() {
         }
         .animate-bounce-short {
           animation: bounce-short 2s infinite ease-in-out;
+        }
+        
+        /* Needed for Zoom embed full height constraint if it overflows */
+        #zoom-embed-root {
+          z-index: 10;
         }
       `}</style>
 
