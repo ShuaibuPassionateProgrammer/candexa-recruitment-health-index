@@ -10,6 +10,9 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Candexa AI - Recruitment Health Index",
   description: "Evaluate your hiring performance with our AI-powered recruitment health assessment",
+  icons: {
+    icon: "/logo.jpg",
+  },
 };
 
 export default function RootLayout({
