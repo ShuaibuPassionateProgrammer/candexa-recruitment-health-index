@@ -18,6 +18,7 @@ export async function POST(req: Request) {
       method: 'POST',
       headers: {
         Authorization: `Basic ${authString}`,
+        'Content-Type': 'application/x-www-form-urlencoded',
       },
     });
 

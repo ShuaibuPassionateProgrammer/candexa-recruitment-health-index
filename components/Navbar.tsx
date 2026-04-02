@@ -68,6 +68,14 @@ export default function Navbar() {
             >
               Feedback
             </Link>
+            <Link
+              href="/faq"
+              className={`text-sm font-medium transition-colors ${
+                isActive('/faq') ? 'text-[#ff7a18]' : 'text-slate-600 hover:text-slate-900'
+              }`}
+            >
+              FAQ
+            </Link>
             
             {isLoggedIn ? (
               <>
@@ -173,6 +181,15 @@ export default function Navbar() {
                 }`}
               >
                 Feedback
+              </Link>
+              <Link
+                href="/faq"
+                onClick={() => setIsMenuOpen(false)}
+                className={`text-base font-medium ${
+                  isActive('/faq') ? 'text-[#ff7a18]' : 'text-slate-600'
+                }`}
+              >
+                FAQ
               </Link>
               
               {isLoggedIn ? (
